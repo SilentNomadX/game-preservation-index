@@ -18,7 +18,14 @@ total_score = (
 max_score = 50
 
 gpi_score = (total_score / max_score) * 100
-risk_level = "Low Risk"
+if gpi_score >=75:
+    risk_level = "Low Risk"
+elif gpi_score >= 50:
+    risk_level = "Medium Risk"
+elif gpi_score >= 25:
+    risk_level = "High Risk"
+else:
+    risk_level = "Critical Risk"
 
 print("Game Preservation Index")
 print("-----------------------")
