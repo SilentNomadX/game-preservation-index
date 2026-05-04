@@ -8,7 +8,8 @@ games = [
         "documentation": 75,
         "technical_preservation": 40,
         "community_preservation": 90,
-        "cultural_value": 85
+        "cultural_value": 85,
+        "evidence_note": "Widely available on modern platforms, but source code and deeper technical materials are not publicly available."
     },
     {
         "title": "The Simpsons: Hit & Run",
@@ -19,7 +20,8 @@ games = [
         "documentation": 55,
         "technical_preservation": 35,
         "community_preservation": 85,
-        "cultural_value": 80
+        "cultural_value": 80,
+        "evidence_note": "No modern digital release, but strong fan interest and community preservation keep it visible."
     },
     {
         "title": "P.T.",
@@ -30,7 +32,8 @@ games = [
         "documentation": 65,
         "technical_preservation": 20,
         "community_preservation": 90,
-        "cultural_value": 95
+        "cultural_value": 95,
+        "evidence_note": "Delisted from the PlayStation Store, difficult to legally access, but heavily documented and culturally significant."
     }
 ]
 
@@ -40,7 +43,7 @@ weights = {
     "documentation": 0.15,
     "technical_preservation": 0.15,
     "community_preservation": 0.10,
-    "cultural_value": 0.10
+    "cultural_value": 0.10,
 }
 
 
@@ -83,6 +86,7 @@ for game in games:
     print("Platform:", game["platform"])
     print("GPI Score:", game["gpi_score"], "%")
     print("Status:", game["preservation_status"])
+    print("Evidence:", game["evidence_note"])
 
 print()
 print("GPI Ranking")
@@ -101,4 +105,3 @@ for position, game in enumerate(ranked_games, start=1):
         "-",
         game["preservation_status"]
     )
-    
