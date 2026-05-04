@@ -72,14 +72,7 @@ def get_preservation_status(score):
     else:
         return "Critical Risk"
 
-
-print("Game Preservation Index")
-print("-----------------------")
-
-for game in games:
-    game["gpi_score"] = calculate_gpi_score(game)
-    game["preservation_status"] = get_preservation_status(game["gpi_score"])
-
+def print_game_report(game):
     print()
     print("Game:", game["title"])
     print("Year:", game["release_year"])
@@ -87,6 +80,16 @@ for game in games:
     print("GPI Score:", game["gpi_score"], "%")
     print("Status:", game["preservation_status"])
     print("Evidence:", game["evidence_note"])
+
+
+print("Game Preservation Index")
+print("-----------------------")
+
+for game in games:
+    game["gpi_score"] = calculate_gpi_score(game)
+    game["preservation_status"] = get_preservation_status(game["gpi_score"])
+    
+    print_game_report(game)
 
 print()
 print("GPI Ranking")
