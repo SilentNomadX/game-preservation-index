@@ -43,7 +43,7 @@ weights = {
     "documentation": 0.15,
     "technical_preservation": 0.15,
     "community_preservation": 0.10,
-    "cultural_value": 0.10,
+    "cultural_value": 0.10
 }
 
 
@@ -72,6 +72,17 @@ def get_preservation_status(score):
     else:
         return "Critical Risk"
 
+
+def print_category_breakdown(game):
+    print("Category Breakdown:")
+    print("- Playable Access:", game["playable_access"])
+    print("- Platform Dependency:", game["platform_dependency"])
+    print("- Documentation:", game["documentation"])
+    print("- Technical Preservation:", game["technical_preservation"])
+    print("- Community Preservation:", game["community_preservation"])
+    print("- Cultural Value:", game["cultural_value"])
+
+
 def print_game_report(game):
     print()
     print("Game:", game["title"])
@@ -80,6 +91,7 @@ def print_game_report(game):
     print("GPI Score:", game["gpi_score"], "%")
     print("Status:", game["preservation_status"])
     print("Evidence:", game["evidence_note"])
+    print_category_breakdown(game)
 
 
 print("Game Preservation Index")
@@ -88,7 +100,7 @@ print("-----------------------")
 for game in games:
     game["gpi_score"] = calculate_gpi_score(game)
     game["preservation_status"] = get_preservation_status(game["gpi_score"])
-    
+
     print_game_report(game)
 
 print()
@@ -108,3 +120,13 @@ for position, game in enumerate(ranked_games, start=1):
         "-",
         game["preservation_status"]
     )
+
+most_at_risk_game = min(games, key=lambda game: game["gpi_score"])
+
+print()
+print("!!! PRESERVATION PRIORITY !!!")
+print("-----------------------------")
+print("Urgent Focus:", most_at_risk_game["title"])
+print("GPI Score:", most_at_risk_game["gpi_score"], "%")
+print("Status:", most_at_risk_game["preservation_status"])
+print("Evidence:", most_at_risk_game["evidence_note"])
