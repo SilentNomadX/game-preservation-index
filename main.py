@@ -73,6 +73,34 @@ def get_preservation_status(score):
         return "Critical Risk"
 
 
+def generate_preservation_actions(game):
+    actions = []
+
+    if game["playable_access"] < 40:
+        actions.append("Research legal ways to access and play the game today.")
+        actions.append("Archive evidence of delisting, store removal, or lack of modern release.")
+
+    if game["platform_dependency"] < 40:
+        actions.append("Document hardware, operating system, controller, server, or platform dependencies.")
+
+    if game["documentation"] < 50:
+        actions.append("Collect manuals, guides, credits, box art, patch notes, interviews, and making-of material.")
+
+    if game["technical_preservation"] < 50:
+        actions.append("Search for technical information such as engine details, file formats, mod tools, patches, and source code history.")
+
+    if game["community_preservation"] < 50:
+        actions.append("Look for fan communities, modding groups, speedrunners, forums, wikis, and preservation projects.")
+
+    if game["cultural_value"] >= 80:
+        actions.append("Prioritise cultural documentation, including design analysis, historical context, and developer commentary.")
+
+    if not actions:
+        actions.append("Game appears relatively well preserved. Continue monitoring availability and documentation.")
+
+    return actions
+
+
 def print_category_breakdown(game):
     print("Category Breakdown:")
     print("- Playable Access:", game["playable_access"])
@@ -81,6 +109,13 @@ def print_category_breakdown(game):
     print("- Technical Preservation:", game["technical_preservation"])
     print("- Community Preservation:", game["community_preservation"])
     print("- Cultural Value:", game["cultural_value"])
+
+
+def print_preservation_actions(game):
+    print("Recommended Preservation Actions:")
+
+    for action in game["preservation_actions"]:
+        print("-", action)
 
 
 def print_game_report(game):
@@ -92,6 +127,7 @@ def print_game_report(game):
     print("Status:", game["preservation_status"])
     print("Evidence:", game["evidence_note"])
     print_category_breakdown(game)
+    print_preservation_actions(game)
 
 
 print("Game Preservation Index")
@@ -100,6 +136,7 @@ print("-----------------------")
 for game in games:
     game["gpi_score"] = calculate_gpi_score(game)
     game["preservation_status"] = get_preservation_status(game["gpi_score"])
+    game["preservation_actions"] = generate_preservation_actions(game)
 
     print_game_report(game)
 
@@ -130,3 +167,4 @@ print("Urgent Focus:", most_at_risk_game["title"])
 print("GPI Score:", most_at_risk_game["gpi_score"], "%")
 print("Status:", most_at_risk_game["preservation_status"])
 print("Evidence:", most_at_risk_game["evidence_note"])
+print_preservation_actions(most_at_risk_game)
