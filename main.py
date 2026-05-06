@@ -100,6 +100,15 @@ def generate_preservation_actions(game):
     return actions
 
 
+def prepare_games(games):
+    for game in games:
+        game["gpi_score"] = calculate_gpi_score(game)
+        game["preservation_status"] = get_preservation_status(game["gpi_score"])
+        game["rarity_status"] = get_rarity_status(game["rarity_score"])
+        game["collector_alert"] = get_collector_alert(game)
+        game["preservation_actions"] = generate_preservation_actions(game)
+
+
 def print_score_explanation(game, category):
     explanation = game["score_explanations"][category]
 
@@ -155,74 +164,183 @@ def print_game_report(game):
     print_preservation_actions(game)
 
 
-print("Game Preservation Index")
-print("-----------------------")
+def print_terminal_report(games):
+    print("Game Preservation Index")
+    print("-----------------------")
 
-for game in games:
-    game["gpi_score"] = calculate_gpi_score(game)
-    game["preservation_status"] = get_preservation_status(game["gpi_score"])
-    game["rarity_status"] = get_rarity_status(game["rarity_score"])
-    game["collector_alert"] = get_collector_alert(game)
-    game["preservation_actions"] = generate_preservation_actions(game)
+    for game in games:
+        print_game_report(game)
 
-    print_game_report(game)
+    print()
+    print("GPI Ranking")
+    print("-----------")
 
-print()
-print("GPI Ranking")
-print("-----------")
+    ranked_games = sorted(games, key=lambda game: game["gpi_score"], reverse=True)
 
-ranked_games = sorted(games, key=lambda game: game["gpi_score"], reverse=True)
+    for position, game in enumerate(ranked_games, start=1):
+        print(
+            position,
+            "-",
+            game["title"],
+            "-",
+            game["gpi_score"],
+            "%",
+            "-",
+            game["preservation_status"]
+        )
 
-for position, game in enumerate(ranked_games, start=1):
-    print(
-        position,
-        "-",
-        game["title"],
-        "-",
-        game["gpi_score"],
-        "%",
-        "-",
-        game["preservation_status"]
-    )
+    print()
+    print("Collector Priority Ranking")
+    print("--------------------------")
 
-print()
-print("Collector Priority Ranking")
-print("--------------------------")
+    collector_ranked_games = sorted(games, key=lambda game: game["rarity_score"], reverse=True)
 
-collector_ranked_games = sorted(games, key=lambda game: game["rarity_score"], reverse=True)
+    for position, game in enumerate(collector_ranked_games, start=1):
+        print(
+            position,
+            "-",
+            game["title"],
+            "-",
+            game["rarity_score"],
+            "%",
+            "-",
+            game["rarity_status"],
+            "-",
+            game["collector_alert"]
+        )
 
-for position, game in enumerate(collector_ranked_games, start=1):
-    print(
-        position,
-        "-",
-        game["title"],
-        "-",
-        game["rarity_score"],
-        "%",
-        "-",
-        game["rarity_status"],
-        "-",
-        game["collector_alert"]
-    )
+    most_at_risk_game = min(games, key=lambda game: game["gpi_score"])
 
-most_at_risk_game = min(games, key=lambda game: game["gpi_score"])
+    print()
+    print("!!! PRESERVATION PRIORITY !!!")
+    print("-----------------------------")
+    print("Urgent Focus:", most_at_risk_game["title"])
+    print("GPI Score:", most_at_risk_game["gpi_score"], "%")
+    print("Status:", most_at_risk_game["preservation_status"])
+    print("Evidence:", most_at_risk_game["evidence_note"])
+    print_preservation_actions(most_at_risk_game)
 
-print()
-print("!!! PRESERVATION PRIORITY !!!")
-print("-----------------------------")
-print("Urgent Focus:", most_at_risk_game["title"])
-print("GPI Score:", most_at_risk_game["gpi_score"], "%")
-print("Status:", most_at_risk_game["preservation_status"])
-print("Evidence:", most_at_risk_game["evidence_note"])
-print_preservation_actions(most_at_risk_game)
+    highest_collector_priority = max(games, key=lambda game: game["rarity_score"])
 
-highest_collector_priority = max(games, key=lambda game: game["rarity_score"])
+    print()
+    print("!!! COLLECTOR PRIORITY !!!")
+    print("--------------------------")
+    print("Collector Focus:", highest_collector_priority["title"])
+    print("Rarity Score:", highest_collector_priority["rarity_score"], "%")
+    print("Rarity Status:", highest_collector_priority["rarity_status"])
+    print("Collector Alert:", highest_collector_priority["collector_alert"])
+    print("Reason:", highest_collector_priority["rarity_reason"])
 
-print()
-print("!!! COLLECTOR PRIORITY !!!")
-print("--------------------------")
-print("Collector Focus:", highest_collector_priority["title"])
-print("Rarity Score:", highest_collector_priority["rarity_score"], "%")
-print("Rarity Status:", highest_collector_priority["rarity_status"])
-print("Collector Alert:", highest_collector_priority["collector_alert"])
-print("Reason:", highest_collector_priority["rarity_reason"])
+
+def add_markdown_score_explanation(report_lines, game, category):
+    explanation = game["score_explanations"][category]
+
+    report_lines.append(f"  - Reason: {explanation['reason']}")
+    report_lines.append(f"  - Confidence: {explanation['confidence']}")
+
+
+def generate_markdown_report(games):
+    report_lines = []
+
+    report_lines.append("# Game Preservation Index Report")
+    report_lines.append("")
+    report_lines.append("This report evaluates games by preservation risk, rarity, collector priority, evidence, and recommended preservation actions.")
+    report_lines.append("")
+
+    for game in games:
+        report_lines.append(f"## {game['title']}")
+        report_lines.append("")
+        report_lines.append(f"- Year: {game['release_year']}")
+        report_lines.append(f"- Platform: {game['platform']}")
+        report_lines.append(f"- GPI Score: {game['gpi_score']}%")
+        report_lines.append(f"- Preservation Status: {game['preservation_status']}")
+        report_lines.append(f"- Rarity Score: {game['rarity_score']}%")
+        report_lines.append(f"- Rarity Status: {game['rarity_status']}")
+        report_lines.append(f"- Collector Alert: {game['collector_alert']}")
+        report_lines.append("")
+        report_lines.append("### Preservation Evidence")
+        report_lines.append("")
+        report_lines.append(game["evidence_note"])
+        report_lines.append("")
+        report_lines.append("### Rarity Reason")
+        report_lines.append("")
+        report_lines.append(game["rarity_reason"])
+        report_lines.append("")
+        report_lines.append("### Score Breakdown")
+        report_lines.append("")
+
+        categories = [
+            ("Playable Access", "playable_access"),
+            ("Platform Dependency", "platform_dependency"),
+            ("Documentation", "documentation"),
+            ("Technical Preservation", "technical_preservation"),
+            ("Community Preservation", "community_preservation"),
+            ("Cultural Value", "cultural_value"),
+            ("Rarity Score", "rarity_score")
+        ]
+
+        for label, key in categories:
+            report_lines.append(f"- {label}: {game[key]}")
+            add_markdown_score_explanation(report_lines, game, key)
+
+        report_lines.append("")
+        report_lines.append("### Recommended Preservation Actions")
+        report_lines.append("")
+
+        for action in game["preservation_actions"]:
+            report_lines.append(f"- {action}")
+
+        report_lines.append("")
+
+    ranked_games = sorted(games, key=lambda game: game["gpi_score"], reverse=True)
+    collector_ranked_games = sorted(games, key=lambda game: game["rarity_score"], reverse=True)
+
+    report_lines.append("## GPI Ranking")
+    report_lines.append("")
+
+    for position, game in enumerate(ranked_games, start=1):
+        report_lines.append(f"{position}. {game['title']} - {game['gpi_score']}% - {game['preservation_status']}")
+
+    report_lines.append("")
+    report_lines.append("## Collector Priority Ranking")
+    report_lines.append("")
+
+    for position, game in enumerate(collector_ranked_games, start=1):
+        report_lines.append(f"{position}. {game['title']} - {game['rarity_score']}% - {game['rarity_status']} - {game['collector_alert']}")
+
+    most_at_risk_game = min(games, key=lambda game: game["gpi_score"])
+    highest_collector_priority = max(games, key=lambda game: game["rarity_score"])
+
+    report_lines.append("")
+    report_lines.append("## Preservation Priority")
+    report_lines.append("")
+    report_lines.append(f"Urgent Focus: {most_at_risk_game['title']}")
+    report_lines.append(f"GPI Score: {most_at_risk_game['gpi_score']}%")
+    report_lines.append(f"Status: {most_at_risk_game['preservation_status']}")
+    report_lines.append(f"Evidence: {most_at_risk_game['evidence_note']}")
+
+    report_lines.append("")
+    report_lines.append("## Collector Priority")
+    report_lines.append("")
+    report_lines.append(f"Collector Focus: {highest_collector_priority['title']}")
+    report_lines.append(f"Rarity Score: {highest_collector_priority['rarity_score']}%")
+    report_lines.append(f"Rarity Status: {highest_collector_priority['rarity_status']}")
+    report_lines.append(f"Collector Alert: {highest_collector_priority['collector_alert']}")
+    report_lines.append(f"Reason: {highest_collector_priority['rarity_reason']}")
+
+    return "\n".join(report_lines)
+
+
+def save_markdown_report(games):
+    markdown_report = generate_markdown_report(games)
+
+    with open("gpi_report.md", "w") as file:
+        file.write(markdown_report)
+
+    print()
+    print("Markdown report created: gpi_report.md")
+
+
+prepare_games(games)
+print_terminal_report(games)
+save_markdown_report(games)
