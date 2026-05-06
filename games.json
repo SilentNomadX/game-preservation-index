@@ -130,5 +130,313 @@
                 "confidence": "High"
             }
         }
+    },
+    {
+        "title": "Silent Hill 2",
+        "release_year": 2001,
+        "platform": "PlayStation 2 / Xbox / PC",
+        "playable_access": 55,
+        "platform_dependency": 45,
+        "documentation": 80,
+        "technical_preservation": 55,
+        "community_preservation": 90,
+        "cultural_value": 95,
+        "rarity_score": 75,
+        "evidence_note": "Highly influential survival horror game with strong documentation and cultural importance, but original versions remain important to preserve.",
+        "rarity_reason": "Original versions are increasingly valued by collectors, and later versions do not fully replace the preservation importance of the original release.",
+        "score_explanations": {
+            "playable_access": {
+                "reason": "The game has had multiple releases, but original versions remain the most historically important and are not always easy to access legally.",
+                "confidence": "Medium"
+            },
+            "platform_dependency": {
+                "reason": "Original access is tied to older platforms such as PlayStation 2, Xbox, and early PC versions.",
+                "confidence": "High"
+            },
+            "documentation": {
+                "reason": "Silent Hill 2 is heavily documented through criticism, retrospectives, fan analysis, interviews, and horror game studies.",
+                "confidence": "High"
+            },
+            "technical_preservation": {
+                "reason": "Community work has helped preserve and improve some versions, but official source code and production materials are not publicly available.",
+                "confidence": "Medium"
+            },
+            "community_preservation": {
+                "reason": "The game has a strong long-term fan community, modding interest, and critical discussion.",
+                "confidence": "High"
+            },
+            "cultural_value": {
+                "reason": "Silent Hill 2 is widely regarded as one of the most important psychological horror games ever made.",
+                "confidence": "High"
+            },
+            "rarity_score": {
+                "reason": "Collector demand for original versions is strong, especially because the original experience has preservation value beyond later releases.",
+                "confidence": "Medium"
+            }
+        }
+    },
+    {
+        "title": "Metal Gear Solid 4: Guns of the Patriots",
+        "release_year": 2008,
+        "platform": "PlayStation 3",
+        "playable_access": 45,
+        "platform_dependency": 30,
+        "documentation": 75,
+        "technical_preservation": 35,
+        "community_preservation": 75,
+        "cultural_value": 85,
+        "rarity_score": 60,
+        "evidence_note": "Major entry in the Metal Gear series that remains strongly tied to PlayStation 3 hardware.",
+        "rarity_reason": "Its platform dependency makes it harder to access compared with many other major games from the same era.",
+        "score_explanations": {
+            "playable_access": {
+                "reason": "The game is playable on original PlayStation 3 hardware, but access is limited compared with games available on modern platforms.",
+                "confidence": "High"
+            },
+            "platform_dependency": {
+                "reason": "The game remains closely associated with PlayStation 3 architecture and hardware access.",
+                "confidence": "High"
+            },
+            "documentation": {
+                "reason": "There is strong public coverage, guides, reviews, interviews, and franchise analysis.",
+                "confidence": "High"
+            },
+            "technical_preservation": {
+                "reason": "Technical preservation is limited because source code, development tools, and internal materials are not publicly available.",
+                "confidence": "Medium"
+            },
+            "community_preservation": {
+                "reason": "The Metal Gear community remains active, and the game continues to be discussed within franchise history.",
+                "confidence": "High"
+            },
+            "cultural_value": {
+                "reason": "The game is culturally important as a major narrative and technical entry in one of gaming's most recognised stealth franchises.",
+                "confidence": "High"
+            },
+            "rarity_score": {
+                "reason": "The game is not extremely rare, but its hardware dependency increases collector and preservation relevance.",
+                "confidence": "Medium"
+            }
+        }
+    },
+    {
+        "title": "Driver: San Francisco",
+        "release_year": 2011,
+        "platform": "PlayStation 3 / Xbox 360 / PC / Wii",
+        "playable_access": 30,
+        "platform_dependency": 45,
+        "documentation": 55,
+        "technical_preservation": 35,
+        "community_preservation": 70,
+        "cultural_value": 75,
+        "rarity_score": 80,
+        "evidence_note": "Distinctive driving game with unique mechanics and limited modern availability.",
+        "rarity_reason": "Delisting and lack of easy modern access have increased its collector and preservation interest.",
+        "score_explanations": {
+            "playable_access": {
+                "reason": "The game is difficult to access through modern official digital channels, making older copies more important.",
+                "confidence": "Medium"
+            },
+            "platform_dependency": {
+                "reason": "Access mainly depends on seventh-generation consoles or older PC availability.",
+                "confidence": "Medium"
+            },
+            "documentation": {
+                "reason": "There are reviews, guides, and fan discussions, but deeper development documentation is limited.",
+                "confidence": "Medium"
+            },
+            "technical_preservation": {
+                "reason": "There is limited public technical preservation information, source access, or official tool documentation.",
+                "confidence": "Medium"
+            },
+            "community_preservation": {
+                "reason": "The game has maintained a cult reputation due to its unusual shift mechanic and delisting status.",
+                "confidence": "Medium"
+            },
+            "cultural_value": {
+                "reason": "The game is notable for its unusual design concept and its place in arcade driving game history.",
+                "confidence": "Medium"
+            },
+            "rarity_score": {
+                "reason": "Limited modern access and collector interest increase its rarity concern.",
+                "confidence": "Medium"
+            }
+        }
+    },
+    {
+        "title": "Spec Ops: The Line",
+        "release_year": 2012,
+        "platform": "PlayStation 3 / Xbox 360 / PC",
+        "playable_access": 35,
+        "platform_dependency": 50,
+        "documentation": 80,
+        "technical_preservation": 40,
+        "community_preservation": 75,
+        "cultural_value": 90,
+        "rarity_score": 75,
+        "evidence_note": "Important narrative shooter with strong critical discussion and preservation concern due to delisting.",
+        "rarity_reason": "Delisting increases reliance on existing physical and previously purchased digital copies.",
+        "score_explanations": {
+            "playable_access": {
+                "reason": "The game became harder to access after delisting from digital storefronts.",
+                "confidence": "High"
+            },
+            "platform_dependency": {
+                "reason": "Physical access remains possible on older platforms, but modern legal digital access is weakened.",
+                "confidence": "Medium"
+            },
+            "documentation": {
+                "reason": "The game is well documented through criticism, essays, retrospectives, and discussion of its narrative themes.",
+                "confidence": "High"
+            },
+            "technical_preservation": {
+                "reason": "Technical preservation is limited because source code and internal materials are not publicly available.",
+                "confidence": "Medium"
+            },
+            "community_preservation": {
+                "reason": "The game remains discussed because of its unusual treatment of violence, player agency, and military shooter conventions.",
+                "confidence": "High"
+            },
+            "cultural_value": {
+                "reason": "It is culturally significant because it challenged mainstream military shooter design and storytelling expectations.",
+                "confidence": "High"
+            },
+            "rarity_score": {
+                "reason": "Delisting creates scarcity pressure because new legal digital purchases are restricted.",
+                "confidence": "High"
+            }
+        }
+    },
+    {
+        "title": "OutRun 2006: Coast 2 Coast",
+        "release_year": 2006,
+        "platform": "PlayStation 2 / Xbox / PSP / PC",
+        "playable_access": 25,
+        "platform_dependency": 40,
+        "documentation": 55,
+        "technical_preservation": 30,
+        "community_preservation": 65,
+        "cultural_value": 80,
+        "rarity_score": 85,
+        "evidence_note": "Important arcade racing title affected by licensing and modern availability issues.",
+        "rarity_reason": "Licensed content and lack of modern digital availability make original copies more important to collectors.",
+        "score_explanations": {
+            "playable_access": {
+                "reason": "Modern official access is limited, increasing reliance on older physical releases.",
+                "confidence": "Medium"
+            },
+            "platform_dependency": {
+                "reason": "The game depends on older platforms and legacy PC compatibility.",
+                "confidence": "Medium"
+            },
+            "documentation": {
+                "reason": "The game has reviews, fan discussion, and arcade racing coverage, but limited deep preservation documentation.",
+                "confidence": "Medium"
+            },
+            "technical_preservation": {
+                "reason": "Public technical preservation information is limited, and licensing issues complicate long-term access.",
+                "confidence": "Medium"
+            },
+            "community_preservation": {
+                "reason": "Arcade racing fans continue to discuss and value the game.",
+                "confidence": "Medium"
+            },
+            "cultural_value": {
+                "reason": "The game is culturally valuable as a strong later entry in Sega's arcade racing legacy.",
+                "confidence": "Medium"
+            },
+            "rarity_score": {
+                "reason": "Licensing and limited modern access increase collector interest and preservation concern.",
+                "confidence": "Medium"
+            }
+        }
+    },
+    {
+        "title": "Marvel vs. Capcom 2",
+        "release_year": 2000,
+        "platform": "Arcade / Dreamcast / PlayStation 2 / Xbox / Xbox 360 / PlayStation 3",
+        "playable_access": 45,
+        "platform_dependency": 45,
+        "documentation": 75,
+        "technical_preservation": 45,
+        "community_preservation": 95,
+        "cultural_value": 95,
+        "rarity_score": 80,
+        "evidence_note": "Highly influential fighting game with strong community preservation but complicated availability history.",
+        "rarity_reason": "Original releases and older digital versions have strong collector and fighting game community demand.",
+        "score_explanations": {
+            "playable_access": {
+                "reason": "The game has existed across multiple platforms, but legal modern access has not always been stable.",
+                "confidence": "Medium"
+            },
+            "platform_dependency": {
+                "reason": "Important versions are tied to arcade hardware and older home platforms.",
+                "confidence": "Medium"
+            },
+            "documentation": {
+                "reason": "The game is heavily documented through competitive play, guides, videos, match archives, and community history.",
+                "confidence": "High"
+            },
+            "technical_preservation": {
+                "reason": "Community knowledge is strong, but official source code and internal development materials are not publicly available.",
+                "confidence": "Medium"
+            },
+            "community_preservation": {
+                "reason": "The fighting game community has kept the game alive through tournaments, match footage, discussion, and long-term competitive interest.",
+                "confidence": "High"
+            },
+            "cultural_value": {
+                "reason": "It is one of the most important crossover fighting games and has major significance in competitive fighting game history.",
+                "confidence": "High"
+            },
+            "rarity_score": {
+                "reason": "Demand for original and older versions remains high due to collector interest and competitive legacy.",
+                "confidence": "Medium"
+            }
+        }
+    },
+    {
+        "title": "Pokémon HeartGold and SoulSilver",
+        "release_year": 2009,
+        "platform": "Nintendo DS",
+        "playable_access": 50,
+        "platform_dependency": 45,
+        "documentation": 85,
+        "technical_preservation": 50,
+        "community_preservation": 95,
+        "cultural_value": 90,
+        "rarity_score": 85,
+        "evidence_note": "Highly valued Nintendo DS remakes with strong collector interest and long-term cultural importance.",
+        "rarity_reason": "Physical copies and complete boxed versions are strongly desired by collectors, especially versions with Pokéwalker accessories.",
+        "score_explanations": {
+            "playable_access": {
+                "reason": "The games are playable on Nintendo DS and compatible hardware, but they are not broadly available through modern official digital routes.",
+                "confidence": "High"
+            },
+            "platform_dependency": {
+                "reason": "Access depends on Nintendo DS-era hardware and cartridges.",
+                "confidence": "High"
+            },
+            "documentation": {
+                "reason": "The games are heavily documented through guides, wikis, walkthroughs, fan communities, and Pokémon resources.",
+                "confidence": "High"
+            },
+            "technical_preservation": {
+                "reason": "Public technical and community knowledge is strong, but official source code and development tools are not available.",
+                "confidence": "Medium"
+            },
+            "community_preservation": {
+                "reason": "The Pokémon community is extremely active and has preserved large amounts of information, strategy, and historical discussion.",
+                "confidence": "High"
+            },
+            "cultural_value": {
+                "reason": "The games are culturally important as beloved remakes of major Pokémon titles and are widely viewed as among the strongest entries in the series.",
+                "confidence": "High"
+            },
+            "rarity_score": {
+                "reason": "Collector demand is high, especially for complete versions and accessory bundles.",
+                "confidence": "High"
+            }
+        }
     }
-] 
+]
