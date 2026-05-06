@@ -1,47 +1,9 @@
-games = [
-    {
-        "title": "God of War",
-        "release_year": 2018,
-        "platform": "PlayStation 4 / PC",
-        "playable_access": 90,
-        "platform_dependency": 85,
-        "documentation": 75,
-        "technical_preservation": 40,
-        "community_preservation": 90,
-        "cultural_value": 85,
-        "rarity_score": 15,
-        "evidence_note": "Widely available on modern platforms, but source code and deeper technical materials are not publicly available.",
-        "rarity_reason": "Still available on modern platforms and easy to access physically and digitally."
-    },
-    {
-        "title": "The Simpsons: Hit & Run",
-        "release_year": 2003,
-        "platform": "PlayStation 2 / Xbox / GameCube / PC",
-        "playable_access": 35,
-        "platform_dependency": 45,
-        "documentation": 55,
-        "technical_preservation": 35,
-        "community_preservation": 85,
-        "cultural_value": 80,
-        "rarity_score": 70,
-        "evidence_note": "No modern digital release, but strong fan interest and community preservation keep it visible.",
-        "rarity_reason": "No current official digital release, older platform dependency, and strong collector demand make access harder."
-    },
-    {
-        "title": "P.T.",
-        "release_year": 2014,
-        "platform": "PlayStation 4",
-        "playable_access": 5,
-        "platform_dependency": 10,
-        "documentation": 65,
-        "technical_preservation": 20,
-        "community_preservation": 90,
-        "cultural_value": 95,
-        "rarity_score": 95,
-        "evidence_note": "Delisted from the PlayStation Store, difficult to legally access, but heavily documented and culturally significant.",
-        "rarity_reason": "Delisted from official storefronts and only accessible through specific existing PS4 installs."
-    }
-]
+import json
+
+
+with open("games.json", "r") as file:
+    games = json.load(file)
+
 
 weights = {
     "playable_access": 0.30,
