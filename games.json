@@ -11,7 +11,37 @@
         "cultural_value": 85,
         "rarity_score": 15,
         "evidence_note": "Widely available on modern platforms, but source code and deeper technical materials are not publicly available.",
-        "rarity_reason": "Still available on modern platforms and easy to access physically and digitally."
+        "rarity_reason": "Still available on modern platforms and easy to access physically and digitally.",
+        "score_explanations": {
+            "playable_access": {
+                "reason": "The game is available on modern platforms, including PC, making it relatively easy for players to access legally.",
+                "confidence": "High"
+            },
+            "platform_dependency": {
+                "reason": "The game is not locked only to original PlayStation 4 hardware because a PC version exists.",
+                "confidence": "High"
+            },
+            "documentation": {
+                "reason": "There is strong public discussion, reviews, guides, interviews, and analysis around the game, although deeper production archives are limited.",
+                "confidence": "Medium"
+            },
+            "technical_preservation": {
+                "reason": "The game is playable and patched, but source code, internal tools, and full development materials are not publicly available.",
+                "confidence": "Medium"
+            },
+            "community_preservation": {
+                "reason": "The game has an active player base, continued discussion, analysis, and long-term interest.",
+                "confidence": "High"
+            },
+            "cultural_value": {
+                "reason": "The game had a major impact on cinematic action-adventure design, character-driven storytelling, and the direction of the God of War franchise.",
+                "confidence": "High"
+            },
+            "rarity_score": {
+                "reason": "The game remains widely available compared with older or delisted titles.",
+                "confidence": "High"
+            }
+        }
     },
     {
         "title": "The Simpsons: Hit & Run",
@@ -25,7 +55,37 @@
         "cultural_value": 80,
         "rarity_score": 70,
         "evidence_note": "No modern digital release, but strong fan interest and community preservation keep it visible.",
-        "rarity_reason": "No current official digital release, older platform dependency, and strong collector demand make access harder."
+        "rarity_reason": "No current official digital release, older platform dependency, and strong collector demand make access harder.",
+        "score_explanations": {
+            "playable_access": {
+                "reason": "The game is not currently available through modern official digital storefronts, so legal access depends mainly on older physical copies.",
+                "confidence": "High"
+            },
+            "platform_dependency": {
+                "reason": "The game is tied to older platforms such as PlayStation 2, Xbox, GameCube, and original PC releases.",
+                "confidence": "High"
+            },
+            "documentation": {
+                "reason": "There is decent public information, guides, fan discussion, and retrospective coverage, but it is not as deeply documented as some historically preserved titles.",
+                "confidence": "Medium"
+            },
+            "technical_preservation": {
+                "reason": "The game has strong fan interest, but official source code, tools, and full technical materials are not publicly available.",
+                "confidence": "Medium"
+            },
+            "community_preservation": {
+                "reason": "The game has a strong fan community, nostalgia value, modding interest, and continued online discussion.",
+                "confidence": "High"
+            },
+            "cultural_value": {
+                "reason": "The game is remembered as one of the most beloved licensed games of its generation and remains culturally visible through fan demand.",
+                "confidence": "High"
+            },
+            "rarity_score": {
+                "reason": "The lack of a modern official release means physical copies remain the main legal route to ownership, increasing collector pressure.",
+                "confidence": "Medium"
+            }
+        }
     },
     {
         "title": "P.T.",
@@ -39,6 +99,36 @@
         "cultural_value": 95,
         "rarity_score": 95,
         "evidence_note": "Delisted from the PlayStation Store, difficult to legally access, but heavily documented and culturally significant.",
-        "rarity_reason": "Delisted from official storefronts and only accessible through specific existing PS4 installs."
+        "rarity_reason": "Delisted from official storefronts and only accessible through specific existing PS4 installs.",
+        "score_explanations": {
+            "playable_access": {
+                "reason": "The game was delisted and is no longer normally available through official storefronts, making legal access extremely limited.",
+                "confidence": "High"
+            },
+            "platform_dependency": {
+                "reason": "Access depends heavily on specific PlayStation 4 systems or accounts where the game was already installed.",
+                "confidence": "High"
+            },
+            "documentation": {
+                "reason": "Although access is poor, the game is heavily documented through videos, articles, analysis, fan discussion, and horror game retrospectives.",
+                "confidence": "High"
+            },
+            "technical_preservation": {
+                "reason": "The game has no public source code or official technical preservation route, and its delisted status creates additional preservation risk.",
+                "confidence": "Medium"
+            },
+            "community_preservation": {
+                "reason": "The game remains highly discussed, analysed, recreated, and remembered by horror fans and game design communities.",
+                "confidence": "High"
+            },
+            "cultural_value": {
+                "reason": "The game became one of the most famous horror demos ever released due to its connection to Silent Hills, its design impact, and its unusual delisting history.",
+                "confidence": "High"
+            },
+            "rarity_score": {
+                "reason": "Because it is delisted and cannot be newly downloaded normally, access is extremely rare compared with most digital games.",
+                "confidence": "High"
+            }
+        }
     }
-]
+] 

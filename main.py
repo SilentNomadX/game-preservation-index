@@ -100,15 +100,36 @@ def generate_preservation_actions(game):
     return actions
 
 
+def print_score_explanation(game, category):
+    explanation = game["score_explanations"][category]
+
+    print("  Reason:", explanation["reason"])
+    print("  Confidence:", explanation["confidence"])
+
+
 def print_category_breakdown(game):
     print("Category Breakdown:")
+
     print("- Playable Access:", game["playable_access"])
+    print_score_explanation(game, "playable_access")
+
     print("- Platform Dependency:", game["platform_dependency"])
+    print_score_explanation(game, "platform_dependency")
+
     print("- Documentation:", game["documentation"])
+    print_score_explanation(game, "documentation")
+
     print("- Technical Preservation:", game["technical_preservation"])
+    print_score_explanation(game, "technical_preservation")
+
     print("- Community Preservation:", game["community_preservation"])
+    print_score_explanation(game, "community_preservation")
+
     print("- Cultural Value:", game["cultural_value"])
+    print_score_explanation(game, "cultural_value")
+
     print("- Rarity Score:", game["rarity_score"])
+    print_score_explanation(game, "rarity_score")
 
 
 def print_preservation_actions(game):
