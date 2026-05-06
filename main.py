@@ -9,7 +9,9 @@ games = [
         "technical_preservation": 40,
         "community_preservation": 90,
         "cultural_value": 85,
-        "evidence_note": "Widely available on modern platforms, but source code and deeper technical materials are not publicly available."
+        "rarity_score": 15,
+        "evidence_note": "Widely available on modern platforms, but source code and deeper technical materials are not publicly available.",
+        "rarity_reason": "Still available on modern platforms and easy to access physically and digitally."
     },
     {
         "title": "The Simpsons: Hit & Run",
@@ -21,7 +23,9 @@ games = [
         "technical_preservation": 35,
         "community_preservation": 85,
         "cultural_value": 80,
-        "evidence_note": "No modern digital release, but strong fan interest and community preservation keep it visible."
+        "rarity_score": 70,
+        "evidence_note": "No modern digital release, but strong fan interest and community preservation keep it visible.",
+        "rarity_reason": "No current official digital release, older platform dependency, and strong collector demand make access harder."
     },
     {
         "title": "P.T.",
@@ -33,7 +37,9 @@ games = [
         "technical_preservation": 20,
         "community_preservation": 90,
         "cultural_value": 95,
-        "evidence_note": "Delisted from the PlayStation Store, difficult to legally access, but heavily documented and culturally significant."
+        "rarity_score": 95,
+        "evidence_note": "Delisted from the PlayStation Store, difficult to legally access, but heavily documented and culturally significant.",
+        "rarity_reason": "Delisted from official storefronts and only accessible through specific existing PS4 installs."
     }
 ]
 
@@ -73,6 +79,34 @@ def get_preservation_status(score):
         return "Critical Risk"
 
 
+def get_rarity_status(rarity_score):
+    if rarity_score >= 80:
+        return "Extremely Rare"
+    elif rarity_score >= 60:
+        return "Rare"
+    elif rarity_score >= 40:
+        return "Scarce"
+    elif rarity_score >= 20:
+        return "Uncommon"
+    else:
+        return "Common"
+
+
+def get_collector_alert(game):
+    rarity_score = game["rarity_score"]
+    playable_access = game["playable_access"]
+    platform_dependency = game["platform_dependency"]
+
+    if rarity_score >= 80 and playable_access < 40:
+        return "High Priority"
+    elif rarity_score >= 60 and playable_access < 50:
+        return "Buy Soon"
+    elif rarity_score >= 40 or platform_dependency < 50:
+        return "Monitor"
+    else:
+        return "Safe to Wait"
+
+
 def generate_preservation_actions(game):
     actions = []
 
@@ -95,6 +129,9 @@ def generate_preservation_actions(game):
     if game["cultural_value"] >= 80:
         actions.append("Prioritise cultural documentation, including design analysis, historical context, and developer commentary.")
 
+    if game["rarity_score"] >= 70:
+        actions.append("Track rarity evidence, including current availability, pricing patterns, and platform access limits.")
+
     if not actions:
         actions.append("Game appears relatively well preserved. Continue monitoring availability and documentation.")
 
@@ -109,6 +146,7 @@ def print_category_breakdown(game):
     print("- Technical Preservation:", game["technical_preservation"])
     print("- Community Preservation:", game["community_preservation"])
     print("- Cultural Value:", game["cultural_value"])
+    print("- Rarity Score:", game["rarity_score"])
 
 
 def print_preservation_actions(game):
@@ -124,8 +162,12 @@ def print_game_report(game):
     print("Year:", game["release_year"])
     print("Platform:", game["platform"])
     print("GPI Score:", game["gpi_score"], "%")
-    print("Status:", game["preservation_status"])
-    print("Evidence:", game["evidence_note"])
+    print("Preservation Status:", game["preservation_status"])
+    print("Rarity Score:", game["rarity_score"], "%")
+    print("Rarity Status:", game["rarity_status"])
+    print("Collector Alert:", game["collector_alert"])
+    print("Preservation Evidence:", game["evidence_note"])
+    print("Rarity Reason:", game["rarity_reason"])
     print_category_breakdown(game)
     print_preservation_actions(game)
 
@@ -136,6 +178,8 @@ print("-----------------------")
 for game in games:
     game["gpi_score"] = calculate_gpi_score(game)
     game["preservation_status"] = get_preservation_status(game["gpi_score"])
+    game["rarity_status"] = get_rarity_status(game["rarity_score"])
+    game["collector_alert"] = get_collector_alert(game)
     game["preservation_actions"] = generate_preservation_actions(game)
 
     print_game_report(game)
@@ -158,6 +202,26 @@ for position, game in enumerate(ranked_games, start=1):
         game["preservation_status"]
     )
 
+print()
+print("Collector Priority Ranking")
+print("--------------------------")
+
+collector_ranked_games = sorted(games, key=lambda game: game["rarity_score"], reverse=True)
+
+for position, game in enumerate(collector_ranked_games, start=1):
+    print(
+        position,
+        "-",
+        game["title"],
+        "-",
+        game["rarity_score"],
+        "%",
+        "-",
+        game["rarity_status"],
+        "-",
+        game["collector_alert"]
+    )
+
 most_at_risk_game = min(games, key=lambda game: game["gpi_score"])
 
 print()
@@ -168,3 +232,14 @@ print("GPI Score:", most_at_risk_game["gpi_score"], "%")
 print("Status:", most_at_risk_game["preservation_status"])
 print("Evidence:", most_at_risk_game["evidence_note"])
 print_preservation_actions(most_at_risk_game)
+
+highest_collector_priority = max(games, key=lambda game: game["rarity_score"])
+
+print()
+print("!!! COLLECTOR PRIORITY !!!")
+print("--------------------------")
+print("Collector Focus:", highest_collector_priority["title"])
+print("Rarity Score:", highest_collector_priority["rarity_score"], "%")
+print("Rarity Status:", highest_collector_priority["rarity_status"])
+print("Collector Alert:", highest_collector_priority["collector_alert"])
+print("Reason:", highest_collector_priority["rarity_reason"])
