@@ -9,14 +9,19 @@ CLIENT_SECRET = os.getenv("IGDB_CLIENT_SECRET")
 def get_access_token():
     url = "https://id.twitch.tv/oauth2/token"
 
-    params = {
+    data = {
         "client_id": CLIENT_ID,
         "client_secret": CLIENT_SECRET,
         "grant_type": "client_credentials"
     }
 
-    response = requests.post(url, params=params)
-    response.raise_for_status()
+    response = requests.post(url, data=data)
+
+    if response.status_code != 200:
+        print("Twitch token request failed.")
+        print("Status code:", response.status_code)
+        print("Response:", response.text)
+        return None
 
     return response.json()["access_token"]
 
@@ -36,12 +41,21 @@ def search_game(game_name, access_token):
     '''
 
     response = requests.post(url, headers=headers, data=body)
-    response.raise_for_status()
+
+    if response.status_code != 200:
+        print("IGDB game search failed.")
+        print("Status code:", response.status_code)
+        print("Response:", response.text)
+        return []
 
     return response.json()
 
 
 def print_results(results):
+    if not results:
+        print("No results found.")
+        return
+
     for game in results:
         print()
         print("Title:", game.get("name", "Unknown"))
@@ -69,5 +83,7 @@ if CLIENT_ID is None or CLIENT_SECRET is None:
     print("Set IGDB_CLIENT_ID and IGDB_CLIENT_SECRET before running this file.")
 else:
     token = get_access_token()
-    results = search_game("Silent Hill 2", token)
-    print_results(results)
+
+    if token is not None:
+        results = search_game("Silent Hill 2", token)
+        print_results(results)
